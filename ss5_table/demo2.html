@@ -5,24 +5,31 @@
     <title>Title</title>
 </head>
 <body>
-<!--ten the-->
-<!--thuoc tinh-->
-<form action="">
+
+<form action="index.html" method="post">
     <label for="name">Họ và tên:</label>
-    <input placeholder="name" id="name">
     <br>
+    <input placeholder="name" id="name" name="username">
+    <br>
+
     <label>Email</label>
-    <input placeholder="email" id="Email">
+    <input placeholder="email" id="Email" name="email">
     <br>
-    <label>Address
-        <input placeholder="address" id="Address"></label>
-    <br>
+
     <label>Phone
-        <input placeholder="phone" id="phone"></label>
+        <input placeholder="phone" id="phone" name="phone">
+    </label>
     <br>
+
+    <label for="pw">Password
+        <input placeholder="Password" id="pw" name="password" type="password">
+    </label>
+    <br>
+
     <label>Datetime
         <input placeholder="Datetime" type="datetime-local"></label>
     <br>
+
     <label>Address
         <select>
             <option>Đà Nẵng</option>
@@ -40,7 +47,11 @@
         </label>
     <br>
     <button>Đăng ký</button>
-
+<!--3 loại button-->
+<!--Xóa dữ liệu của form-->
+    <button type="reset">Reset</button>
+<!--gửi dữ liệu cảu form-->
+<!--coi đây là 1 nút thông thường-->
 </form>
 </body>
 </html>

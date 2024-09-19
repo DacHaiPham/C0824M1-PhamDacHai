@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<button style="width: 100px; height: 50px" id="btn">Like</button>
+</body>
+<script>
+    // internal
+    // function: hàm
+    // addEventListener: lắng nghe sự kiện
+    //Khi sự kiện click xảy ra nó sẽ thực hiện funtion và hiển thị alert
+    let btn = document.getElementById("btn")
+    document.getElementById("btn").addEventListener("click", function (){
+        btn.style.backgroundColor="blue";
+        btn.style.color="white";
+        btn.innerText="Unlike";
+    })
+</script>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a =+prompt("Mời nhập iểm kiểm tra");
+    let b =+prompt("Mời nhập iểm giữa kỳ");
+    let c =+prompt("Mời nhập iểm cuối kỳ");
+    let d = (a + b + c) / 3
+    if (d > 8.5 ) {
+        alert(`${d} Xuất sắc`)
+    } else {
+        if (8 < d < 8.5) {
+            alert(`${d} Tốt`);
+        } else {
+            if (d < 8) {
+                alert(`${d} Khá`);
+            } else {
+                if (5 < d < 6) {
+                    alert(`${d} Trung bình`);
+                } else {
+                    alert(`${d} Yếu`);
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

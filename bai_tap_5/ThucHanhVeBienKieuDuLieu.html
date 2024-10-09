@@ -1,10 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
+<style>
+
+    *{
+
+    }
+
+    tr{
+
+    }
+
+    input{
+        width: 50px;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+</style>
 <body>
-$END$
+<!--    Bài 1     -->
+    <tr>
+        <label >Vật Lý:</label>
+        <input type="text"/>
+    </tr>
+
+    <tr>
+         <label>Hoá:</label>
+         <input type="text"/>
+    </tr>
+
+    <tr>
+        <label>Toán:</label>
+        <input type="text"/>
+    </tr>
+
+
+<br>
+    <button type="submit" id="btn" onclick="showMessage();">Tổng</button>
 </body>
+    <script>
+
+        // let a = 10
+        // let b = 10
+        // let c = 10
+        // let d = a + b + c
+        // document.write('d = ' + d)
+
+
+        function showMessage() {
+            document.getElementById('btn').innerHTML = alert('Tổng điểm là');
+        }
+    </script>
+
 </html>

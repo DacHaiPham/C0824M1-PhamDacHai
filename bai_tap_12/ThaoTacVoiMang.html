@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="text" id="textValue">
+<input type="button" id="btnAdd" value="Add" onclick="add_element();"/>
+<input type="button" id="btnDisplay" value="Display" onclick="show_Display();"/>
+<div id="result"></div>
+
+<script>
+    let x = 0;
+    let array = Array();
+    function add_element() {
+        //Lấy giá trị từ input-text và gán phần tử ở vị trí x trong mảng mỗi lần hàm
+        array[x] = document.getElementById("textValue").value;
+        //hien thi phan tu vua tao duoc vao mang
+        alert("Element: " + array[x] + "Added at index" + x);
+        //tang gia tri len 1
+        x++;
+        document.getElementById("textValue").value = "";
+    }
+    function show_Display() {
+        //
+        let e = "<hr/>";
+        //vòng lặp for duyệt toàn bộ mảng: for (var i=0; i<array.length; i++)
+        for (let i = 0; i < array.length; i++) {
+            e += "Element" + i + "=" + array[i] + "<br/>";
+        }
+        //Kết thúc lặp. Hiển thị biến e
+        document.getElementById("result").innerHTML = e;
+    }
+</script>
+</body>
+</html>

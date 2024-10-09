@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let value = +prompt("Nhập một số");
+    let number = [-3, -2, -1, 0, 1, 2, 3, 4, 10];
+    for (let i = 0; i < number.length; i++) {
+        if (value === number[i]) {
+            alert("Value " + number[i] + "found at" + i);
+        }else {
+            alert("Value" + number[i] + "not found" + i);
+        }
+    }
+    document.write(value);
+</script>
+</body>
+</html>

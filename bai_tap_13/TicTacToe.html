@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Khởi tạo bàn cờ 3x3
+    let board = [
+        ['.', '.', '.'],
+        ['.', '.', '.'],
+        ['.', '.', '.']
+    ];
+
+    // Hàm hiển thị bàn cờ
+    function displayBoard() {
+        for (let i = 0; i < board.length; i++) {
+            console.log(board[i].join(' '));
+        }
+    }
+
+    // Hàm kiểm tra người chiến thắng
+    function checkWinner(player) {
+        // Kiểm tra hàng
+        for (let i = 0; i < 3; i++) {
+            if (board[i][0] === player && board[i][1] === player && board[i][2] === player) {
+                return true;
+            }
+        }
+
+        // Kiểm tra cột
+        for (let i = 0; i < 3; i++) {
+            if (board[0][i] === player && board[1][i] === player && board[2][i] === player) {
+                return true;
+            }
+        }
+
+        // Kiểm tra đường chéo
+        if ((board[0][0] === player && board[1][1] === player && board[2][2] === player) ||
+            (board[0][2] === player && board[1][1] === player && board[2][0] === player)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    // Hàm thực hiện lượt chơi
+    function playGame() {
+        let currentPlayer = 'X';  // Người chơi X bắt đầu trước
+        let turns = 0;  // Đếm số lượt chơi
+        let maxTurns = 9;  // Tối đa 9 lượt cho bàn cờ 3x3
+
+        while (turns < maxTurns) {
+            displayBoard();
+            let row = prompt(`Người chơi ${currentPlayer}, nhập vào số hàng (0, 1, 2):`);
+            let col = prompt(`Người chơi ${currentPlayer}, nhập vào số cột (0, 1, 2):`);
+
+            // Kiểm tra vị trí hợp lệ
+            if (board[row][col] === '.') {
+                board[row][col] = currentPlayer;
+                turns++;
+
+                // Kiểm tra người chiến thắng
+                if (checkWinner(currentPlayer)) {
+                    displayBoard();
+                    console.log(`Người chơi ${currentPlayer} đã chiến thắng!`);
+                    return;
+                }
+
+                // Chuyển lượt cho người chơi tiếp theo
+                currentPlayer = (currentPlayer === 'X') ? 'O' : 'X';
+            } else {
+                console.log("Vị trí đã có người chơi, vui lòng chọn vị trí khác!");
+            }
+        }
+
+        displayBoard();
+        console.log("Trò chơi hòa!");
+    }
+
+    // Bắt đầu trò chơi
+    playGame();
+
+</script>
+</body>
+</html>

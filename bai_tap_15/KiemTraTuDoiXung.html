@@ -1,10 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    // Hàm kiểm tra chuỗi đối xứng (palindrome) bằng đệ quy
+    function isPalindrome(s) {
+        // Loại bỏ các ký tự không phải chữ cái và chuyển về chữ thường
+        s = s.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+        // Nếu chuỗi có 0 hoặc 1 ký tự, thì đó là chuỗi đối xứng
+        if (s.length <= 1) {
+            return true;
+        }
+
+        // So sánh ký tự đầu tiên và ký tự cuối cùng
+        if (s[0] === s[s.length - 1]) {
+            // Đệ quy để kiểm tra phần chuỗi ở giữa
+            return isPalindrome(s.slice(1, s.length - 1));
+        } else {
+            // Nếu ký tự đầu và cuối không giống nhau, không phải chuỗi đối xứng
+            return false;
+        }
+    }
+
+    // Ví dụ sử dụng:
+    let testString1 = "racecar"; // Chuỗi đối xứng
+    let testString2 = "hello";   // Không phải chuỗi đối xứng
+
+    document.write(testString1 + " là chuỗi đối xứng: " + isPalindrome(testString1)); // Kết quả: true
+    document.write(testString2 + " là chuỗi đối xứng: " + isPalindrome(testString2)); // Kết quả: false
+
+</script>
 </body>
 </html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Cho một mảng số nguyên có số phần tử không vượt quá 20 phần tử, viết chương trình tìm tất cả các số có trong mảng
+ là bội chung của 3 và 5, sau đó tính tổng của các số đó và hiển thị ra màn hình.-->
+<script>
+
+  let arr = [1, 2, 3, 4, 5, 15, 30, 45, 60, 70, 75, 80, 90, 100, 120, 150, 180, 200, 210, 250];
+  let newNumber = prompt("Nhập số mới để thêm vào mảng:");
+  let total = [];
+
+  let maxLength = 20;
+  for (let i = 0; i < arr.length; i++) {
+      // Kiểm tra nếu số đó là bội chung của 3 và 5
+      if (arr[i] % 3 === 0 && arr[i] % 5 === 0) {
+          total += arr[i];      // Cộng vào tổng
+      }
+  }
+ console.log("Tổng của các số bội chung của 3 và 5 là:", total);
+
+  //
+  for (let i = 0; i < arr.length; i++) {
+      console.log(arr[i]);
+  }
+
+  if (newNumber !== null && newNumber !== '') {
+      // Kiểm tra xem input có phải là số không
+      if (!isNaN(newNumber)) {
+          // Chuyển đổi thành số và thêm vào mảng
+          newNumber = Number(newNumber);
+          if (arr.length < maxLength) {
+              arr.push(newNumber); // Thêm số mới vào mảng
+              console.log("Số đã thêm:", newNumber);
+          } else {
+              console.log("Số lượng phần tử trong mảng đã đạt tối đa 20. Không thể thêm số mới.");
+          }
+      } else {
+          console.log("Vui lòng nhập một số hợp lệ.");
+      }
+  }
+
+  console.log("Mảng sau khi thêm số mới:", arr);
+
+
+
+</script>
+</body>
+</html>

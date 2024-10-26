@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let arr = [10, 15, 3, 7, 5, 9];
+    let k = 12;
+    let result = countNumber(arr, k);
+
+  function countNumber(arr, k) {
+    let count = 0;
+    let n = arr.length;
+
+    for (let i = 0; i < n; i++) {
+      for (let j = i + 1; j < n; j++) {
+        if ((arr[i] + arr[j]) % k === 0) {
+          count++;
+        }
+      }
+    }
+
+    return count;
+  }
+
+  document.write(`Số cặp có tổng chia hết cho ${k} là: ${result}`);
+
+</script>
+</body>
+</html>

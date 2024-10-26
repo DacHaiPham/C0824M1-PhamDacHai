@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    /* Đặt chiều rộng cố định và căn chỉnh đều cho các ô nhập liệu */
+    form label {
+        display: inline-block;
+        width: 200px; /* Chiều rộng nhãn */
+        margin-top: 10px;
+    }
+
+    form input {
+        width: 200px; /* Chiều rộng ô nhập liệu */
+        padding: 5px;
+        margin-top: 10px;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 7px 15px;
+        font-size: 16px;
+    }
+</style>
+
+<body>
+<!--Viết chương trình quản lý khách hàng của một công ty bất động sản. Tạo đối tượng Khách hàng bao gồm các thông tin
+ như sau: Mã khách hàng, Tên khách hàng, Số điện thoại, Địa chỉ ,Email.-->
+<h2>Danh Sách Khách Hàng</h2>
+<table id="customerTable" border="1" cellpadding="10" cellspacing="0">
+    <thead>
+    <tr>
+        <th>Mã Khách Hàng</th>
+        <th>Tên Khách Hàng</th>
+        <th>Số Điện Thoại</th>
+        <th>Địa Chỉ</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Dữ liệu khách hàng sẽ được thêm vào đây -->
+    </tbody>
+</table>
+
+<h3>Thêm Khách Hàng Mới</h3>
+<form id="customerForm">
+    <label for="idCustomers">Mã Khách Hàng:</label>
+    <input type="text" id="idCustomers" required><br>
+    <label for="nameCustomers">Tên Khách Hàng:</label>
+    <input type="text" id="nameCustomers" required><br>
+    <label for="phoneNumbers">Số Điện Thoại:</label>
+    <input type="text" id="phoneNumbers" required><br>
+    <label for="address">Địa Chỉ:</label>
+    <input type="text" id="address" required><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" required><br><br>
+    <button type="button" onclick="addCustomer()">Thêm Khách Hàng</button>
+</form>
+
+<script>
+    class KhachHang {
+        idCustomers;
+        nameCustomers;
+        phoneNumbers;
+        address;
+        email;
+
+        constructor(idCustomers, nameCustomers, phoneNumbers, address, email) {
+            this.idCustomers = idCustomers;
+            this.nameCustomers = nameCustomers;
+            this.phoneNumbers = phoneNumbers;
+            this.address = address;
+            this.email = email;
+        }
+    }
+
+    let CustomerList = [];
+
+
+    function addCustomer() {
+        // Lấy dữ liệu từ form
+        let idCustomers = document.getElementById('idCustomers').value;
+        let nameCustomers = document.getElementById('nameCustomers').value;
+        let phoneNumbers = document.getElementById('phoneNumbers').value;
+        let address = document.getElementById('address').value;
+        let email = document.getElementById('email').value;
+
+
+        // Tạo đối tượng khách hàng mới
+        let khachHang = new KhachHang(idCustomers, nameCustomers, phoneNumbers, address, email);
+
+        // Thêm khách hàng vào danh sách
+        CustomerList.push(khachHang);
+
+        // Cập nhật bảng
+        hienThiDanhSachKhachHang();
+
+        // Xóa dữ liệu trong form
+        document.getElementById('customerForm').reset();
+    }
+
+    function hienThiDanhSachKhachHang() {
+        let tbody = document.getElementById('customerTable').getElementsByTagName('tbody')[0];
+        tbody.innerHTML = ''; // Xóa bảng hiện tại
+
+        // Thêm từng khách hàng vào bảng
+        CustomerList.forEach(khachHang => {
+            let row = tbody.insertRow();
+
+            row.insertCell().textContent = khachHang.idCustomers;
+            row.insertCell().textContent = khachHang.nameCustomers;
+            row.insertCell().textContent = khachHang.phoneNumbers;
+            row.insertCell().textContent = khachHang.address;
+            row.insertCell().textContent = khachHang.email;
+        });
+    }
+</script>
+</body>
+</html>
